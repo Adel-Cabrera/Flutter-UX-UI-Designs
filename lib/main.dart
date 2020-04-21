@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterexuxuii/src/challenges/cuadrado_animado.dart';
 import 'package:flutterexuxuii/src/pages/animaciones_page.dart';
-import 'package:flutterexuxuii/src/pages/circular_progress_page.dart';
+import 'package:flutterexuxuii/src/labs/circular_progress_page.dart';
 import 'package:flutterexuxuii/src/pages/headers_page.dart';
 
 void main() => runApp(
