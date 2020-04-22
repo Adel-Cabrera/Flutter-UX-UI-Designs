@@ -4,7 +4,8 @@ import 'package:flutterexuxuii/src/pages/animaciones_page.dart';
 import 'package:flutterexuxuii/src/labs/circular_progress_page.dart';
 import 'package:flutterexuxuii/src/pages/graficas_circulares_page.dart';
 import 'package:flutterexuxuii/src/pages/headers_page.dart';
-import 'package:flutterexuxuii/src/labs/slideshow_page.dart';
+import 'package:flutterexuxuii/src/pages/slideshow_page.dart';
+//import 'package:flutterexuxuii/src/labs/slideshow_page.dart';
 
 void main() => runApp(
       MyApp(),
