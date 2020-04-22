@@ -35,7 +35,59 @@ class PinteresMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        child: Text('Hello World'),
+        child: _MenuItems(menuItems: items),
+        width: 250.0,
+        height: 60,
+        decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(
+              100,
+            ),
+            boxShadow: <BoxShadow>[
+              BoxShadow(
+                color: Colors.black38,
+                offset: Offset(0.0, 0.0),
+                blurRadius: 10.0,
+                spreadRadius: -5,
+              ),
+            ]),
+      ),
+    );
+  }
+}
+
+class _MenuItems extends StatelessWidget {
+  final List<PinterestButton> menuItems;
+
+  _MenuItems({this.menuItems});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: List.generate(
+        menuItems.length,
+        (index) =>
+            _PinterestMenuButton(index: index, menuItem: menuItems[index]),
+      ),
+    );
+  }
+}
+
+class _PinterestMenuButton extends StatelessWidget {
+  final int index;
+  final PinterestButton menuItem;
+
+  _PinterestMenuButton({this.index, this.menuItem});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: menuItem.onPressed,
+      child: Container(
+        child: Icon(
+          menuItem.icon,
+        ),
       ),
     );
   }
