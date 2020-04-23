@@ -7,6 +7,7 @@ import 'package:flutterexuxuii/src/pages/graficas_circulares_page.dart';
 import 'package:flutterexuxuii/src/pages/headers_page.dart';
 import 'package:flutterexuxuii/src/pages/pinterest_page.dart';
 import 'package:flutterexuxuii/src/pages/slideshow_page.dart';
+import 'package:flutterexuxuii/src/pages/sliver_page.dart';
 //import 'package:flutterexuxuii/src/labs/slideshow_page.dart';
 
 void main() => runApp(
@@ -30,7 +31,8 @@ class MyApp extends StatelessWidget {
           // GraficasCircularesPage(),
           //SlideshowPage(),
           // PinterestPage(),
-          EmergencyPage(),
+          // EmergencyPage(),
+          SliverListPage(),
     );
   }
 }
