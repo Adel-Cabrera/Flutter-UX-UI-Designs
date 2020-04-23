@@ -2,20 +2,37 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class IconHeader extends StatelessWidget {
+  final IconData icon;
+  final String titulo;
+  final String subtitulo;
+  final Color color1;
+  final Color color2;
+
+  IconHeader({
+    @required this.icon,
+    @required this.titulo,
+    @required this.subtitulo,
+    this.color1 = Colors.grey,
+    this.color2 = Colors.blueGrey,
+  });
+
   @override
   Widget build(BuildContext context) {
     final Color colorBlanco = Colors.white.withOpacity(0.7);
 
     return Stack(
       children: <Widget>[
-        _IconHeaderBackground(),
+        _IconHeaderBackground(
+          color1: this.color1,
+          color2: this.color2,
+        ),
         Positioned(
           top: -50.0,
           left: -70.0,
           child: FaIcon(
-            FontAwesomeIcons.plus,
+            this.icon,
             size: 250.0,
-            color: colorBlanco,
+            color: Colors.white.withOpacity(0.2),
           ),
         ),
         Column(
@@ -25,14 +42,14 @@ class IconHeader extends StatelessWidget {
               width: double.infinity,
             ),
             Text(
-              'Haz solicitado',
+              this.subtitulo,
               style: TextStyle(fontSize: 20.0, color: colorBlanco),
             ),
             SizedBox(
               height: 20,
             ),
             Text(
-              'Asistencia Médica',
+              this.titulo,
               style: TextStyle(
                 fontSize: 25.0,
                 color: colorBlanco,
@@ -43,7 +60,7 @@ class IconHeader extends StatelessWidget {
               height: 20,
             ),
             FaIcon(
-              FontAwesomeIcons.plus,
+              this.icon,
               size: 80.0,
               color: Colors.white,
             ),
@@ -55,9 +72,9 @@ class IconHeader extends StatelessWidget {
 }
 
 class _IconHeaderBackground extends StatelessWidget {
-  const _IconHeaderBackground({
-    Key key,
-  }) : super(key: key);
+  final Color color1;
+  final Color color2;
+  _IconHeaderBackground({@required this.color1, @required this.color2});
 
   @override
   Widget build(BuildContext context) {
@@ -75,8 +92,8 @@ class _IconHeaderBackground extends StatelessWidget {
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: <Color>[
-            Color(0xFF5266F6),
-            Color(0xFF67ACF2),
+            this.color1,
+            this.color2,
           ],
         ),
       ),
