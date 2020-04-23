@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterexuxuii/src/challenges/cuadrado_animado.dart';
 import 'package:flutterexuxuii/src/pages/animaciones_page.dart';
 import 'package:flutterexuxuii/src/labs/circular_progress_page.dart';
+import 'package:flutterexuxuii/src/pages/emergency_page.dart';
 import 'package:flutterexuxuii/src/pages/graficas_circulares_page.dart';
 import 'package:flutterexuxuii/src/pages/headers_page.dart';
 import 'package:flutterexuxuii/src/pages/pinterest_page.dart';
@@ -28,7 +29,8 @@ class MyApp extends StatelessWidget {
           // CircularProgressPage(),
           // GraficasCircularesPage(),
           //SlideshowPage(),
-          PinterestPage(),
+          // PinterestPage(),
+          EmergencyPage(),
     );
   }
 }
