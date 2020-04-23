@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterexuxuii/src/widgets/boton_gordo.dart';
 import 'package:flutterexuxuii/src/widgets/emergency_header.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:animate_do/animate_do.dart';
 
 class ItemBoton {
   final IconData icon;
@@ -44,12 +45,15 @@ class EmergencyPage extends StatelessWidget {
 
     List<Widget> itemMap = items.map(
       (item) {
-        return BotonGordo(
-            icon: item.icon,
-            texto: item.texto,
-            color1: item.color1,
-            color2: item.color2,
-            onPress: () {});
+        return FadeInLeft(
+          duration: Duration(milliseconds: 500),
+          child: BotonGordo(
+              icon: item.icon,
+              texto: item.texto,
+              color1: item.color1,
+              color2: item.color2,
+              onPress: () {}),
+        );
       },
     ).toList();
 
