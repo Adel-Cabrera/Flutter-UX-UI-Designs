@@ -5,9 +5,11 @@ import 'package:flutterexuxuii/src/labs/circular_progress_page.dart';
 import 'package:flutterexuxuii/src/pages/emergency_page.dart';
 import 'package:flutterexuxuii/src/pages/graficas_circulares_page.dart';
 import 'package:flutterexuxuii/src/pages/headers_page.dart';
+import 'package:flutterexuxuii/src/pages/pagina1_page.dart';
 import 'package:flutterexuxuii/src/pages/pinterest_page.dart';
 import 'package:flutterexuxuii/src/pages/slideshow_page.dart';
 import 'package:flutterexuxuii/src/pages/sliver_page.dart';
+import 'package:flutterexuxuii/src/pages/twitter_page.dart';
 //import 'package:flutterexuxuii/src/labs/slideshow_page.dart';
 
 void main() => runApp(
@@ -32,7 +34,9 @@ class MyApp extends StatelessWidget {
           //SlideshowPage(),
           // PinterestPage(),
           // EmergencyPage(),
-          SliverListPage(),
+          // SliverListPage(),
+          // Pagina1Page(),
+          TwitterPage(),
     );
   }
 }
