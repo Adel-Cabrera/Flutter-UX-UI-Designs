@@ -5,6 +5,7 @@ import 'package:flutterexuxuii/src/labs/circular_progress_page.dart';
 import 'package:flutterexuxuii/src/pages/emergency_page.dart';
 import 'package:flutterexuxuii/src/pages/graficas_circulares_page.dart';
 import 'package:flutterexuxuii/src/pages/headers_page.dart';
+import 'package:flutterexuxuii/src/pages/navegacion_page.dart';
 import 'package:flutterexuxuii/src/pages/pagina1_page.dart';
 import 'package:flutterexuxuii/src/pages/pinterest_page.dart';
 import 'package:flutterexuxuii/src/pages/slideshow_page.dart';
@@ -36,7 +37,8 @@ class MyApp extends StatelessWidget {
           // EmergencyPage(),
           // SliverListPage(),
           // Pagina1Page(),
-          TwitterPage(),
+          // TwitterPage(),
+          NavegacionPage(),
     );
   }
 }

@@ -2,7 +2,13 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class TwitterPage extends StatelessWidget {
+class TwitterPage extends StatefulWidget {
+  @override
+  _TwitterPageState createState() => _TwitterPageState();
+}
+
+class _TwitterPageState extends State<TwitterPage> {
+  bool activar = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,12 +17,16 @@ class TwitterPage extends StatelessWidget {
         child: FaIcon(
           FontAwesomeIcons.play,
         ),
-        onPressed: () {},
+        onPressed: () {
+          setState(() {
+            activar = !activar;
+          });
+        },
       ),
       backgroundColor: Color(0xFF1DA1F2),
       body: Center(
         child: ZoomOut(
-          animate: false,
+          animate: activar,
           from: 30.0,
           duration: Duration(
             seconds: 1,

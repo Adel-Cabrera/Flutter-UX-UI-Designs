@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterexuxuii/src/pages/twitter_page.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:animate_do/animate_do.dart';
 
@@ -21,7 +22,13 @@ class Pagina1Page extends StatelessWidget {
             icon: FaIcon(
               FontAwesomeIcons.twitter,
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(
+                CupertinoPageRoute(
+                  builder: (context) => TwitterPage(),
+                ),
+              );
+            },
           ),
           SlideInLeft(
             from: 100.0,
