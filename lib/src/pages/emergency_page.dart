@@ -14,9 +14,11 @@ class EmergencyPage extends StatelessWidget {
             BotonGordo(
           icon: FontAwesomeIcons.carCrash,
           texto: 'TEXTO',
-          color1: Colors.purple,
-          color2: Colors.greenAccent,
-          onPress: () {},
+          color1: Color(0xFF6989F5),
+          color2: Color(0xFF906EF5),
+          onPress: () {
+            print('BotonGesture');
+          },
         ),
       ),
     );
@@ -34,8 +36,8 @@ class PageHeader extends StatelessWidget {
       icon: FontAwesomeIcons.plus,
       subtitulo: 'Haz Solicitado',
       titulo: 'Asistencia Médica',
-      color1: Color(0xFF526BF6),
-      color2: Color(0xFF67ACF2),
+      color1: Color(0xFF6989F5),
+      color2: Color(0xFF906EF5),
     );
   }
 }

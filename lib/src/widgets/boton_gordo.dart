@@ -18,47 +18,50 @@ class BotonGordo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: <Widget>[
-        _BotonGordoBackground(
-          icon: this.icon,
-          color1: this.color1,
-          color2: this.color2,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            SizedBox(
-              height: 140.0,
-              width: 40.0,
-            ),
-            FaIcon(
-              this.icon,
-              color: Colors.white,
-              size: 40.0,
-            ),
-            SizedBox(
-              width: 20.0,
-            ),
-            Expanded(
-              child: Text(
-                this.texto,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18.0,
+    return GestureDetector(
+      onTap: this.onPress,
+      child: Stack(
+        children: <Widget>[
+          _BotonGordoBackground(
+            icon: this.icon,
+            color1: this.color1,
+            color2: this.color2,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              SizedBox(
+                height: 140.0,
+                width: 40.0,
+              ),
+              FaIcon(
+                this.icon,
+                color: Colors.white,
+                size: 40.0,
+              ),
+              SizedBox(
+                width: 20.0,
+              ),
+              Expanded(
+                child: Text(
+                  this.texto,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18.0,
+                  ),
                 ),
               ),
-            ),
-            FaIcon(
-              FontAwesomeIcons.chevronRight,
-              color: Colors.white,
-            ),
-            SizedBox(
-              width: 40.0,
-            ),
-          ],
-        ),
-      ],
+              FaIcon(
+                FontAwesomeIcons.chevronRight,
+                color: Colors.white,
+              ),
+              SizedBox(
+                width: 40.0,
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
