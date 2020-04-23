@@ -2,11 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BotonGordo extends StatelessWidget {
+  final IconData icon;
+  final String texto;
+  final Color color1;
+  final Color color2;
+  final Function onPress;
+
+  BotonGordo({
+    this.icon = FontAwesomeIcons.infinity,
+    @required this.texto,
+    this.color1 = Colors.grey,
+    this.color2 = Colors.blueGrey,
+    @required this.onPress,
+  });
+
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
-        _BotonGordoBackground(),
+        _BotonGordoBackground(
+          icon: this.icon,
+          color1: this.color1,
+          color2: this.color2,
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -15,7 +33,7 @@ class BotonGordo extends StatelessWidget {
               width: 40.0,
             ),
             FaIcon(
-              FontAwesomeIcons.carCrash,
+              this.icon,
               color: Colors.white,
               size: 40.0,
             ),
@@ -24,7 +42,7 @@ class BotonGordo extends StatelessWidget {
             ),
             Expanded(
               child: Text(
-                'Motor Accident',
+                this.texto,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 18.0,
@@ -46,9 +64,11 @@ class BotonGordo extends StatelessWidget {
 }
 
 class _BotonGordoBackground extends StatelessWidget {
-  const _BotonGordoBackground({
-    Key key,
-  }) : super(key: key);
+  final IconData icon;
+  final Color color1;
+  final Color color2;
+
+  const _BotonGordoBackground({this.icon, this.color1, this.color2});
 
   @override
   Widget build(BuildContext context) {
@@ -72,8 +92,8 @@ class _BotonGordoBackground extends StatelessWidget {
         ),
         gradient: LinearGradient(
           colors: <Color>[
-            Color(0xFF6989F5),
-            Color(0xFF906EF5),
+            this.color1,
+            this.color2,
           ],
         ),
       ),
@@ -87,7 +107,7 @@ class _BotonGordoBackground extends StatelessWidget {
               top: -20,
               right: -20,
               child: FaIcon(
-                FontAwesomeIcons.carCrash,
+                this.icon,
                 size: 150.0,
                 color: Colors.white.withOpacity(0.2),
               ),

@@ -11,7 +11,13 @@ class EmergencyPage extends StatelessWidget {
       body: Center(
         child:
             //PageHeader()
-            BotonGordo(),
+            BotonGordo(
+          icon: FontAwesomeIcons.carCrash,
+          texto: 'TEXTO',
+          color1: Colors.purple,
+          color2: Colors.greenAccent,
+          onPress: () {},
+        ),
       ),
     );
   }
