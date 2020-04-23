@@ -2,23 +2,103 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutterexuxuii/src/widgets/pinterest_menu.dart';
+import 'package:provider/provider.dart';
 
 class PinterestPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: //_PinterestGrid(),
-          PinteresMenu(),
+    return ChangeNotifierProvider(
+      create: (_) => _MenuModel(),
+      child: Scaffold(
+        body: //_PinterestGrid(),
+            // PinteresMenu(),
+            Stack(
+          children: <Widget>[
+            _PinterestGrid(),
+            _PinterestMenuLocation(),
+          ],
+        ),
+      ),
     );
   }
 }
 
-class _PinterestGrid extends StatelessWidget {
+class _PinterestMenuLocation extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final widthPantalla = MediaQuery.of(context).size.width;
+    final mostrar = Provider.of<_MenuModel>(context).mostrar;
+    return Positioned(
+      bottom: 30.0,
+      child: Container(
+        width: widthPantalla,
+        child: Align(
+          alignment: Alignment.center,
+          child: PinterestMenu(
+            mostrar: mostrar,
+            items: <PinterestButton>[
+              PinterestButton(
+                  icon: Icons.pie_chart,
+                  onPressed: () {
+                    print('pie chart');
+                  }),
+              PinterestButton(
+                  icon: Icons.search,
+                  onPressed: () {
+                    print('search');
+                  }),
+              PinterestButton(
+                  icon: Icons.notifications,
+                  onPressed: () {
+                    print('notifications');
+                  }),
+              PinterestButton(
+                  icon: Icons.supervised_user_circle,
+                  onPressed: () {
+                    print('supervised_user_circle');
+                  }),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _PinterestGrid extends StatefulWidget {
+  @override
+  __PinterestGridState createState() => __PinterestGridState();
+}
+
+class __PinterestGridState extends State<_PinterestGrid> {
   final List<int> items = List.generate(201, (index) => index);
+  ScrollController controller = new ScrollController();
+  double scrollAnterior = 0;
+
+  @override
+  void initState() {
+    controller.addListener(() {
+      if (controller.offset > scrollAnterior && controller.offset > 100) {
+        Provider.of<_MenuModel>(context, listen: false).mostrar = false;
+      } else {
+        Provider.of<_MenuModel>(context, listen: false).mostrar = true;
+      }
+
+      scrollAnterior = controller.offset;
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return new StaggeredGridView.countBuilder(
+      controller: controller,
       crossAxisCount: 4,
       itemCount: items.length,
       itemBuilder: (BuildContext context, int index) => _PinterestItem(
@@ -55,5 +135,16 @@ class _PinterestItem extends StatelessWidget {
             child: new Text('$index'),
           ),
         ));
+  }
+}
+
+class _MenuModel with ChangeNotifier {
+  bool _mostrar = true;
+
+  bool get mostrar => this._mostrar;
+
+  set mostrar(bool value) {
+    this._mostrar = value;
+    notifyListeners();
   }
 }
