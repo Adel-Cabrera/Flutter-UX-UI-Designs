@@ -10,12 +10,23 @@ class SliverListPage extends StatelessWidget {
 }
 
 class _ListaTareas extends StatelessWidget {
+  final items = [
+    _ListItem('Orange', Color(0xffF08F66)),
+    _ListItem('Family', Color(0xffF2A38A)),
+    _ListItem('Orange', Color(0xffF08F66)),
+    _ListItem('Family', Color(0xffF2A38A)),
+    _ListItem('Orange', Color(0xffF08F66)),
+    _ListItem('Family', Color(0xffF2A38A)),
+    _ListItem('Orange', Color(0xffF08F66)),
+    _ListItem('Family', Color(0xffF2A38A)),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       physics: BouncingScrollPhysics(),
-      itemCount: 20,
-      itemBuilder: (context, index) => _ListItem(),
+      itemCount: items.length,
+      itemBuilder: (context, index) => items[index],
     );
   }
 }
@@ -72,6 +83,11 @@ class _Titulo extends StatelessWidget {
 }
 
 class _ListItem extends StatelessWidget {
+  final String titulo;
+  final Color color;
+
+  _ListItem(this.titulo, this.color);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -84,13 +100,13 @@ class _ListItem extends StatelessWidget {
         10.0,
       ),
       decoration: BoxDecoration(
-        color: Colors.orange,
+        color: color,
         borderRadius: BorderRadius.circular(
           30.0,
         ),
       ),
       child: Text(
-        'HW',
+        titulo,
         style: TextStyle(
           color: Colors.white,
           fontWeight: FontWeight.bold,
