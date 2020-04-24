@@ -7,18 +7,32 @@ import 'package:provider/provider.dart';
 class SlideshowPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    bool isLarge;
+
+    if (MediaQuery.of(context).size.height > 500.0) {
+      isLarge = true;
+    } else {
+      isLarge = false;
+    }
+
+    final List<Widget> children = [
+      Expanded(
+        child: MiSlideShow(),
+      ),
+      Expanded(
+        child: MiSlideShow(),
+      ),
+    ];
+
     return Scaffold(
       backgroundColor: Colors.purple,
-      body: Column(
-        children: <Widget>[
-          Expanded(
-            child: MiSlideShow(),
-          ),
-          Expanded(
-            child: MiSlideShow(),
-          ),
-        ],
-      ),
+      body: isLarge
+          ? Column(
+              children: children,
+            )
+          : Row(
+              children: children,
+            ),
     );
   }
 }

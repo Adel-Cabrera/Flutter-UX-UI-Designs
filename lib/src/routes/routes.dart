@@ -17,7 +17,7 @@ final pageRoute = <_Route>[
   ),
   _Route(
     icon: FontAwesomeIcons.ambulance,
-    titulo: 'Emnergencia',
+    titulo: 'Emergencia',
     page: EmergencyPage(),
   ),
   _Route(
