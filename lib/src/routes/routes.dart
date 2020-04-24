@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutterexuxuii/src/pages/slideshow_page.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:flutterexuxuii/src/challenges/cuadrado_animado.dart';
-import 'package:flutterexuxuii/src/labs/slideshow_page.dart';
 import 'package:flutterexuxuii/src/pages/emergency_page.dart';
 import 'package:flutterexuxuii/src/pages/graficas_circulares_page.dart';
 import 'package:flutterexuxuii/src/pages/headers_page.dart';
